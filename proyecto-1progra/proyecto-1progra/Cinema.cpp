@@ -55,10 +55,10 @@ void Cinema::showMoviesList() {
 
 		std::cout << "HORARIOS: " << std::endl;
 		for (int index = 0; index < room.getScheduleCounter(); index++) {
-			std::cout << "Fecha de la pelicula: " << room.getSchedule(index).getDate() <<
+			std::cout<<"Fecha de la pelicula: " << room.getSchedule(index).getDate()<<
 				"  Hora de inicio: " << room.getSchedule(index).getStartHour() <<
 				"  Hora de finalizacion: " << room.getSchedule(index).getEndHour() << std::endl;
-		}
+		}	
 	}
 	std::cout << "===================================================================================================" << std::endl;
 }

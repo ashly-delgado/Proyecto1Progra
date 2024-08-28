@@ -4,10 +4,14 @@
 Booking::Booking() {
 	totalPrice = 0;
 	bookingNumber = 0;
+	movieId = 0;
+	scheduleId = 0;
 }
-Booking::Booking(double totalPrice, int bookingNumber) {
+Booking::Booking(double totalPrice, int bookingNumber, int movieId, int scheduleId) {
 	this->totalPrice = totalPrice;
 	this->bookingNumber = bookingNumber;
+	this->movieId = movieId;
+	this->scheduleId = scheduleId;
 }
 Booking::~Booking() {
 
@@ -20,6 +24,12 @@ double Booking::getTotalPrice() {
 int Booking::getBookingNumber() {
 	return bookingNumber;
 }
+int Booking::getMovieId() {
+	return movieId;
+}
+int Booking::getScheduleId() {
+	return scheduleId;
+}
 
 //sets metodos
 void Booking::setTotalPrice(double totalPrice) {
@@ -27,4 +37,10 @@ void Booking::setTotalPrice(double totalPrice) {
 }
 void Booking::setBookingNumber(int bookingNumber) {
 	this->bookingNumber = bookingNumber;
+}
+void Booking::setMovieId(int movieId) {
+	this->movieId = movieId;
+}
+void Booking::setScheduleId(int schedueleId) {
+	this->scheduleId = scheduleId;
 }

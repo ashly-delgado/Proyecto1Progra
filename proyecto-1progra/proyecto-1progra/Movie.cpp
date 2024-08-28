@@ -49,7 +49,7 @@ void Movie::setYear(int year) {
 	this->year = year;
 }
 void Movie::setTime(int time) {
-	this->time = time;
+    this->time = time;
 }
 void Movie::setCountry(std::string country) {
 	this->country = country;

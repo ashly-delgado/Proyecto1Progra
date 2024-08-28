@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Schedule.h"
 class Room {
@@ -26,3 +27,4 @@ public:
 	int getNumberOfSeats();
 	double getPrice();
 };
+

@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 
 class Sale {
@@ -18,3 +19,4 @@ public:
 	std::string getIdCustomer();
 	std::string getCardNumber();
 };
+

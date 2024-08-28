@@ -18,15 +18,14 @@ public:
 	void subShowFilesMenu();
 	void about();
 	void showMoviesList();
-	void showMovieInformation();
 	void addMovieToArray(Movie movie);
-	void redimArray(Movie*& array, int& sizeFrom, int newSize);
+	void resizeArray(Movie*& array, int& sizeFrom, int newSize);
 	void subAddRoom();
 
 	std::string readString();
 	int getint();
 	double getdouble();
-	Schedule subAddSchedule();
+	void subAddSchedule();
 	Movie addMovie();
 	
 };

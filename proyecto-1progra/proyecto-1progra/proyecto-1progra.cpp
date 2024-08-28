@@ -13,7 +13,7 @@ int main() {
 	int contMovie = 0;
 	int contSchedule = 0;
 	int contRoom = 0;
-
+	
 	/*Movie movie;
 	Movie movies[10];
 	Sale sale;
@@ -23,7 +23,7 @@ int main() {
 	Cinema cinema;
 	Room room;
 	Room rooms[10];
-
+	
 	//switch de todo el menu
 	while (!getOut) {
 		cinema.showMenu();
@@ -66,7 +66,7 @@ int main() {
 			cinema.subMenuReserva();
 			subOpcion = cinema.getint();
 			if (subOpcion == 3) {
-
+			
 			}
 			//reserva 
 
@@ -75,7 +75,7 @@ int main() {
 			cinema.subMenuVenta();
 			subOpcion = cinema.getint();
 			if (subOpcion == 4) {
-
+				
 			}
 			//venta
 			break;

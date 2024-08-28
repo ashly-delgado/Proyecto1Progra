@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 class Schedule {
 private:
@@ -21,3 +22,4 @@ public:
 	int getStartHour();
 	int getEndHour();
 };
+
