@@ -5,7 +5,7 @@ private:
 	std::string date;
 	int startHour;
 	int endHour;
-
+	int** seatsMap;
 public:
 	Schedule();
 	Schedule(std::string date, int starHours, int endHours);
@@ -16,6 +16,7 @@ public:
 	void setDate(std::string);
 	void setStartHour(int);
 	void setEndHour(int);
+	void createSeatsMap(int, int);
 
 	//getters
 	std::string getDate();

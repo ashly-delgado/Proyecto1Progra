@@ -11,6 +11,8 @@ Movie* moviesList = new Movie[NUM_MOVIESLIST];
 Cinema::Cinema() {
 	Room room = Room();
 	room.setNumber(1);
+	room.setRowsQuantities(10);
+	room.setSeatsPerRows(10);
 	room.setNumberOfSeats(100);
 	room.setPrice(3500);
 
@@ -188,17 +190,16 @@ void Cinema::subAddSchedule() {
 	date = readString();
 	schedule.setDate(date);
 
-
 	std::cout << "ingresar la hora de inicio de la pelicula:" << std::endl;
 	startHour = getint();
 	schedule.setStartHour(startHour);
-
 
 	std::cout << "ingresar la hora de finalizacion de la pelicula:" << std::endl;
 	endHour = getint();
 	schedule.setEndHour(endHour);
 
 	Room room = moviesList[number].getRoom();
+	schedule.createSeatsMap(room.getRowsQuantities(),room.getSeatsPerRows());
 	room.setSchedule(schedule);
 	moviesList[number].setRoom(room);
 
@@ -212,6 +213,8 @@ void Cinema::subAddRoom() {
 	int numberMovie = 0;
 	int numberOfSeats = 0;
 	double price = 0;
+	int rowsQuantities = 0;
+	int seatsPerRows = 0;
 
 	for (int i = 0; i < NUM_MOVIESLIST; i++) {
 		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
@@ -223,9 +226,15 @@ void Cinema::subAddRoom() {
 	number = getint();
 	room.setNumber(number);
 
-	std::cout << "Cantidad de butacas" << std::endl;
-	numberOfSeats = getint();
-	room.setNumberOfSeats(numberOfSeats);
+	std::cout << "Cantidad de filas" << std::endl;
+	rowsQuantities = getint();
+	room.setRowsQuantities(rowsQuantities);
+
+	std::cout<<"Digite la cantidad de asientos por filas: " << std::endl;
+	seatsPerRows = getint();
+	room.setSeatsPerRows(seatsPerRows);
+
+	room.setNumberOfSeats(rowsQuantities * seatsPerRows);
 
 	std::cout << "Precio" << std::endl;
 	price = getdouble();
@@ -233,6 +242,7 @@ void Cinema::subAddRoom() {
 	moviesList[numberMovie].setRoom(room);
 
 	std::cout << "La sala se guardo con exito!!" << std::endl;
+
 }
 
 //funcion para leer una cadena de texto
