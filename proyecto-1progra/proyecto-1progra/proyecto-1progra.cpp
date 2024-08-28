@@ -6,15 +6,6 @@
 #include "Room.h"
 #include <string>
 
-void redimensionarArreglo(Movie*& array, int& sizeFrom, int newSize) {
-	Movie* newArray = new Movie[newSize];
-	int elementosACopiar = (newSize < sizeFrom) ? newSize : sizeFrom;
-	std::memcpy(newArray, array, elementosACopiar * sizeof(Movie));
-	delete[] array;
-	array = newArray;
-	sizeFrom = newSize;
-}
-
 int main() {
 	int subOpcion = 0;
 	int opcion;
@@ -22,19 +13,18 @@ int main() {
 	int contMovie = 0;
 	int contSchedule = 0;
 	int contRoom = 0;
-	// definir un array de tipo de Movie
-	// un instancia y la mete al arreglo
-	Movie movie;
+
+	/*Movie movie;
 	Movie movies[10];
 	Sale sale;
-	Sale sales[10];
+	Sale sales[10];*/
 	Schedule schedule;
 	Schedule schedules[10];
 	Cinema cinema;
 	Room room;
 	Room rooms[10];
-	std::string borrar;
 
+	//switch de todo el menu
 	while (!getOut) {
 		cinema.showMenu();
 		opcion = cinema.getint();
@@ -52,7 +42,6 @@ int main() {
 			}
 			break;
 		case 2:
-		
 			cinema.subMenuMantenimiento();
 			subOpcion = cinema.getint();
 			if (subOpcion == 1) {
@@ -66,7 +55,7 @@ int main() {
 			}
 
 			if (subOpcion == 3) {
-				schedules[contSchedule] = cinema.subAddSchedule();
+				cinema.subAddSchedule();
 				contSchedule++;
 			}
 			if (subOpcion == 4) {
@@ -77,7 +66,7 @@ int main() {
 			cinema.subMenuReserva();
 			subOpcion = cinema.getint();
 			if (subOpcion == 3) {
-			
+
 			}
 			//reserva 
 
@@ -86,7 +75,7 @@ int main() {
 			cinema.subMenuVenta();
 			subOpcion = cinema.getint();
 			if (subOpcion == 4) {
-				
+
 			}
 			//venta
 			break;

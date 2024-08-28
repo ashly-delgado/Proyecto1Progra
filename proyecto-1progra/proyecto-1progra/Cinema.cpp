@@ -4,14 +4,15 @@
 #include "Room.h"
 #include <string>
 
+//un vector estatico de 10 espacios, que son las peliculas
 static int  NUM_MOVIESLIST = 10;
 Movie* moviesList = new Movie[NUM_MOVIESLIST];
 
 Cinema::Cinema() {
 	Room room = Room();
 	room.setNumber(1);
-	room.setNumberOfSeats(75);
-	room.setPrice(5200);
+	room.setNumberOfSeats(100);
+	room.setPrice(3500);
 
 	moviesList[0] = Movie("Moana", 2017, 140, "USA", 6, room);
 	moviesList[1] = Movie("Rapidos y furiosos", 2021, 160, "Estados Unidos", 8, room);
@@ -26,29 +27,43 @@ Cinema::Cinema() {
 
 }
 
+//funcion de agregar mas peliculas al vector,llamando la funcion de redimencionar el vector
 void Cinema::addMovieToArray(Movie movie) {
-	int nuevoNum = NUM_MOVIESLIST + 1;
-	redimArray(moviesList, NUM_MOVIESLIST, nuevoNum);
-	moviesList[nuevoNum - 1] = movie;
-	NUM_MOVIESLIST = nuevoNum;
+	int newNumber = NUM_MOVIESLIST + 1;
+	resizeArray(moviesList, NUM_MOVIESLIST, newNumber);
+	moviesList[newNumber - 1] = movie;
+	NUM_MOVIESLIST = newNumber;
 }
 
 Cinema::~Cinema() {
 }
 
-void Cinema:: showMoviesList() {
-	std::cout << "=====peliculas disponibles=====" << std::endl;
-	for (int i = 0; i <NUM_MOVIESLIST; i++) {
-		std::cout<<"| Pelicula:"<<" " << moviesList[i].getName() << "|"<<" "<<"Anio:"<<" " << moviesList[i].getYear() << "|" << " " << "Tiempo:"<<" "<< moviesList[i].getCountry()<<"|"<<""<<"Pais:" <<" "<< moviesList[i].getCountry()<<"|"<<"Resenia:"<<" "<< moviesList[i].getReview()<<"|" << std::endl;
+//funcion de mostrar la lista de peliculas
+void Cinema::showMoviesList() {
+	std::cout << "======================================Peliculas disponibles========================================" << std::endl;
+	for (int i = 0; i < NUM_MOVIESLIST; i++) {
+		std::cout << "| Pelicula:" << " " << moviesList[i].getName() <<
+			"|" << " " << "Anio:" << " " << moviesList[i].getYear() << "|" << " " <<
+			"Tiempo:" << " " << moviesList[i].getCountry() << "|" << "" <<
+			"Pais:" << " " << moviesList[i].getCountry() << "|" <<
+			"Resenia:" << " " << moviesList[i].getReview() << "|" << std::endl;
+
+		std::cout << "    Informacion de sala:" << "Numero de sala:" << moviesList[i].getRoom().getNumber() <<
+			"Numero de asiento:" << moviesList[i].getRoom().getNumberOfSeats() <<
+			"Precio:" << moviesList[i].getRoom().getPrice() << std::endl;
+		Room room = moviesList[i].getRoom();
+
+		std::cout << "HORARIOS: " << std::endl;
+		for (int index = 0; index < room.getScheduleCounter(); index++) {
+			std::cout << "Fecha de la pelicula: " << room.getSchedule(index).getDate() <<
+				"  Hora de inicio: " << room.getSchedule(index).getStartHour() <<
+				"  Hora de finalizacion: " << room.getSchedule(index).getEndHour() << std::endl;
+		}
 	}
-	std::cout << "==============================" << std::endl;
+	std::cout << "===================================================================================================" << std::endl;
 }
 
-void Cinema::showMovieInformation() {
-	std::cout << "Informacion de la pelicula :" << std::endl;
-
-}
-
+//funcion de mostrar el menu principal
 void Cinema::showMenu() {
 	std::cout << "MENU DE NUEVA CINEMA SA:" << std::endl;
 	std::cout << "------------------------\n";
@@ -66,6 +81,7 @@ void Cinema::showMenu() {
 	std::cout << "Porfavor, seleccione una opcion:" << std::endl;
 }
 
+//funcion del submenu de mantenimiento
 void Cinema::subMenuMantenimiento() {
 	std::cout << "MANTENIMIENTO:" << std::endl;
 	std::cout << "-------------------\n";
@@ -80,26 +96,29 @@ void Cinema::subMenuMantenimiento() {
 	std::cout << "Ingrese una opcion:" << std::endl;
 }
 
+//funcion del submenu de reserva
 void Cinema::subMenuReserva() {
 	std::cout << "RESERVA:" << std::endl;
 	std::cout << "-------------------\n";
 }
 
+//funcion del submenu de venta
 void Cinema::subMenuVenta() {
 	std::cout << "VENTA:" << std::endl;
 	std::cout << "-------------------\n";
 }
 
-void Cinema::redimArray(Movie*& array, int& sizeFrom, int newSize) {
+//funcion de redimencionar el vector de peliculas
+void Cinema::resizeArray(Movie*& array, int& sizeFrom, int newSize) {
 	Movie* newArr = new Movie[newSize];
 	for (int i = 0; i < sizeFrom && i < newSize; ++i) {
 		newArr[i] = array[i];
 	}
 	delete[] array;
 	array = newArr;
-	//return newArr;
 }
 
+//funcion de agregar pelicula
 Movie Cinema::addMovie() {
 	Room room = Room();
 	Movie movie;
@@ -124,18 +143,20 @@ Movie Cinema::addMovie() {
 	std::cout << "ingresar el pais de la pelicula:" << std::endl;
 	countryTheMovie = readString();
 	movie.setCountry(countryTheMovie);
-	
+
 	movie.setRoom(room);
-	std::cout << "Se a guardado la pelicula correctamente!!"<<std::endl;
+	std::cout << "Se a guardado la pelicula correctamente!!" << std::endl;
 	std::cout << std::endl;
 	return movie;
 }
 
+//funcion del submenu de archivos
 void Cinema::subShowFilesMenu() {
 	std::cout << "1. Acerca de " << std::endl;
 	std::cout << "2. Salir " << std::endl;
 }
 
+//funcion de acerca de: creador del cinema
 void Cinema::about() {
 	std::cout << "==========================================\n";
 	std::cout << "    BIENVENIDO A NUEVA CINEMA" << std::endl;
@@ -148,27 +169,43 @@ void Cinema::about() {
 	std::cout << "==========================================\n";
 	std::cout << std::endl;
 }
-Schedule Cinema::subAddSchedule() {
+//funcion de agregar horarios
+void Cinema::subAddSchedule() {
 	Schedule schedule;
 	int startHour = 0;
 	int endHour = 0;
 	std::string date;
+	int number = 0;
+
+	for (int i = 0; i < NUM_MOVIESLIST; i++) {
+		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
+	}
+
+	std::cout << "A cual pelicula desea ingresarle un horario:" << std::endl;
+	number = getint();
+
 	std::cout << "ingrese la fecha de la pelicula:" << std::endl;
 	date = readString();
 	schedule.setDate(date);
 
-	
+
 	std::cout << "ingresar la hora de inicio de la pelicula:" << std::endl;
 	startHour = getint();
 	schedule.setStartHour(startHour);
 
-	
+
 	std::cout << "ingresar la hora de finalizacion de la pelicula:" << std::endl;
 	endHour = getint();
 	schedule.setEndHour(endHour);
-	return schedule;
+
+	Room room = moviesList[number].getRoom();
+	room.setSchedule(schedule);
+	moviesList[number].setRoom(room);
+
+	std::cout << "El horario de ha guardado con exito" << std::endl;
 }
 
+//funcion de agregar sala
 void Cinema::subAddRoom() {
 	Room room;
 	int number = 0;
@@ -177,7 +214,7 @@ void Cinema::subAddRoom() {
 	double price = 0;
 
 	for (int i = 0; i < NUM_MOVIESLIST; i++) {
-		std::cout<<i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
+		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
 	}
 	std::cout << "A cual pelicula desea ingresarle una sala:" << std::endl;
 	numberMovie = getint();
@@ -188,7 +225,7 @@ void Cinema::subAddRoom() {
 
 	std::cout << "Cantidad de butacas" << std::endl;
 	numberOfSeats = getint();
-	room.setNumberOfSeats( numberOfSeats);
+	room.setNumberOfSeats(numberOfSeats);
 
 	std::cout << "Precio" << std::endl;
 	price = getdouble();
@@ -198,13 +235,15 @@ void Cinema::subAddRoom() {
 	std::cout << "La sala se guardo con exito!!" << std::endl;
 }
 
+//funcion para leer una cadena de texto
 std::string Cinema::readString() {
 	std::string read;
 	std::getline(std::cin, read);
 	return read;
 }
 
-int Cinema:: getint() {
+//funcion para pasar a enteros
+int Cinema::getint() {
 	int number;
 	bool notNumber = true;
 	while (notNumber) {
@@ -222,6 +261,8 @@ int Cinema:: getint() {
 	}
 	return number;
 }
+
+//funcion para pasar a decimal
 double Cinema::getdouble() {
 	double number;
 	bool notNumber = true;

@@ -1,4 +1,3 @@
-#pragma once
 #include "Room.h"
 #include <iostream>
 
