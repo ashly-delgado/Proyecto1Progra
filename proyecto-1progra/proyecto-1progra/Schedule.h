@@ -6,6 +6,7 @@ private:
 	int startHour;
 	int endHour;
 	int** seatsMap;
+
 public:
 	Schedule();
 	Schedule(std::string date, int starHours, int endHours);
@@ -16,11 +17,15 @@ public:
 	void setDate(std::string);
 	void setStartHour(int);
 	void setEndHour(int);
-	void createSeatsMap(int, int);
 
 	//getters
 	std::string getDate();
 	int getStartHour();
 	int getEndHour();
+
+
+	void createSeatsMap(int, int);
+	void changeSeatStatus(int, int);
+	void showSeats(int, int);
 };
 

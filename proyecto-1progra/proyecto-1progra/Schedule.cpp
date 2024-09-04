@@ -38,10 +38,53 @@ void Schedule::setStartHour(int startHour) {
 void Schedule::setEndHour(int endHour) {
 	this->endHour = endHour;
 }
+
 void Schedule::createSeatsMap(int rowsQuantities, int seatsPerRows) {
 	seatsMap = new int* [rowsQuantities];
 	for (int i = 0; i < rowsQuantities; i++)
 	{
-		seatsMap[0] = new int[seatsPerRows];
+		seatsMap[i] = new int[seatsPerRows];
+	}
+	for (int i = 0; i < rowsQuantities; i++)
+	{
+		for (int e = 0; e < seatsPerRows; e++)
+		{
+			seatsMap[i][e] = 0;
+		}
+	}
+}
+
+void Schedule::changeSeatStatus(int row, int column) {
+	if (seatsMap[row][column] == 0) {
+		seatsMap[row][column] = 1;
+	}
+	if (seatsMap[row][column] == 1) {
+		seatsMap[row][column] = 2;
+	}
+}
+
+void Schedule::showSeats(int rows, int columns) {
+	std::cout << "\033[36m";
+	std::cout << " ---   PANTALLA  ---" << std::endl;
+	std::cout << "\033[0m";
+	for (int i = 0; i < rows; i++) {
+		for (int e = 0; e < columns; e++) {
+			std::cout << "[ ";
+			if (seatsMap[i][e] == 0) {
+				std::cout << "\033[36m";
+				std::cout << "D";
+			}
+			if (seatsMap[i][e] == 1) {
+				std::cout << "\033[35m";
+				std::cout << "R";
+			}
+			if (seatsMap[i][e] == 2) {
+				std::cout << "\033[31m";
+				std::cout << "V";
+			}
+			std::cout << "\033[0m";
+			std::cout << " ]";
+		}
+		std::cout << std::endl;
 	}
 }

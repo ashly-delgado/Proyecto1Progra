@@ -57,10 +57,10 @@ void Cinema::showMoviesList() {
 
 		std::cout << "HORARIOS: " << std::endl;
 		for (int index = 0; index < room.getScheduleCounter(); index++) {
-			std::cout<<"Fecha de la pelicula: " << room.getSchedule(index).getDate()<<
+			std::cout << "Fecha de la pelicula: " << room.getSchedule(index).getDate() <<
 				"  Hora de inicio: " << room.getSchedule(index).getStartHour() <<
 				"  Hora de finalizacion: " << room.getSchedule(index).getEndHour() << std::endl;
-		}	
+		}
 	}
 	std::cout << "===================================================================================================" << std::endl;
 }
@@ -100,8 +100,29 @@ void Cinema::subMenuMantenimiento() {
 
 //funcion del submenu de reserva
 void Cinema::subMenuReserva() {
+	int number;
+	int numberOfSchedule;
 	std::cout << "RESERVA:" << std::endl;
 	std::cout << "-------------------\n";
+
+	std::cout << "PELICULAS:" << std::endl;
+	for (int i = 0; i < NUM_MOVIESLIST; i++) {
+		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
+	}
+
+	std::cout << "A cual pelicula desea hacerle una reserva [digite un numero]:" << std::endl;
+	number = getint();
+	std::cout << "Sala en la que se exhibe la pelicula: " << moviesList[number].getRoom().getNumber() << std::endl;
+
+	std::cout << "Horarios disponibles:" << std::endl;
+	for (int i = 0; i < moviesList[number].getRoom().getScheduleCounter(); i++) {
+		std::cout << i << moviesList[i].getName() << "Fecha: " << moviesList[number].getRoom().getSchedule(i).getDate()
+			<< "Hora de inicio: " << moviesList[number].getRoom().getSchedule(i).getStartHour()
+			<< "hora final: " << moviesList[number].getRoom().getSchedule(i).getStartHour();
+	}
+	std::cout << " A cual horario desea reservar:" << std::endl;
+	numberOfSchedule = getint();
+	moviesList[number].getRoom().getSchedule(numberOfSchedule).showSeats(moviesList[number].getRoom().getRowsQuantities(), moviesList[number].getRoom().getSeatsPerRows());
 }
 
 //funcion del submenu de venta
@@ -199,7 +220,7 @@ void Cinema::subAddSchedule() {
 	schedule.setEndHour(endHour);
 
 	Room room = moviesList[number].getRoom();
-	schedule.createSeatsMap(room.getRowsQuantities(),room.getSeatsPerRows());
+	schedule.createSeatsMap(room.getRowsQuantities(), room.getSeatsPerRows());
 	room.setSchedule(schedule);
 	moviesList[number].setRoom(room);
 
@@ -230,7 +251,7 @@ void Cinema::subAddRoom() {
 	rowsQuantities = getint();
 	room.setRowsQuantities(rowsQuantities);
 
-	std::cout<<"Digite la cantidad de asientos por filas: " << std::endl;
+	std::cout << "Digite la cantidad de asientos por filas: " << std::endl;
 	seatsPerRows = getint();
 	room.setSeatsPerRows(seatsPerRows);
 
