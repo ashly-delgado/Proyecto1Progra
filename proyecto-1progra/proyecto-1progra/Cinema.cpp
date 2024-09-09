@@ -118,16 +118,15 @@ bool Cinema::subMenuReserva() {
 		std::cout << "La pelicula no cuenta con horarios, Porfavor ingrese a la opcion de \"Mantenimiento\" y cree los horarios" << std::endl;
 		return false;
 	}
-
 	std::cout << "Horarios disponibles:" << std::endl;
-	for (int i = 0; i < moviesList[number].getRoom().getScheduleCounter(); i++) {
+	for (int i = 0; i < moviesList[number].getRoom().getScheduleCounter(); i++ ) {
 		std::cout << "Numero de horario ["<< i + 1<<"] " << moviesList[number].getName() << "Fecha: " << moviesList[number].getRoom().getSchedule(i).getDate()
 			<< "Hora de inicio: " << moviesList[number].getRoom().getSchedule(i).getStartHour()
 			<< "hora final: " << moviesList[number].getRoom().getSchedule(i).getEndHour();
 	}
 	std::cout << " A cual horario desea reservar:" << std::endl;
 	numberOfSchedule = getint();
-	moviesList[number].getRoom().getSchedule(numberOfSchedule).showSeats(moviesList[number].getRoom().getRowsQuantities(), moviesList[number].getRoom().getSeatsPerRows());
+	moviesList[number].getRoom().getSchedule(numberOfSchedule -1).showSeats(moviesList[number].getRoom().getRowsQuantities(), moviesList[number].getRoom().getSeatsPerRows());
 
 	return true;
 }
