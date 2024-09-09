@@ -9,15 +9,17 @@ Room::Room() {
 	rowsQuantities = 0;
 	seatsPerRows = 0;
 	scheduleCounter = 0;
-	schedule = new Schedule[0];
+	//schedule = new Schedule[0];
+	schedule = nullptr;
 }
 
-Room::Room(int number, int numberOfSeats, double price, int rowsQuantities, int seatsPerRows) {
+Room::Room(int number, int numberOfSeats, double price, int rowsQuantities, int seatsPerRows ) {
 	this->number = number;
 	this->numberOfSeats = numberOfSeats;
 	this->price = price;
 	this->rowsQuantities = rowsQuantities;
 	this->seatsPerRows = seatsPerRows;
+	schedule = nullptr;
 }
 
 Room::~Room() {
@@ -35,6 +37,9 @@ double Room::getPrice() {
 }
 Schedule Room::getSchedule(int i) {
 	return schedule[i];
+}
+Schedule* Room::getSchedule() {
+	return schedule;
 }
 int Room::getScheduleCounter() {
 	return scheduleCounter;

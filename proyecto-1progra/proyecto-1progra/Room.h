@@ -29,6 +29,7 @@ public:
 	int getScheduleCounter();
 	Schedule getSchedule(int);
 	int getNumber();
+	Schedule* getSchedule();
 	int getNumberOfSeats();
 	int getRowsQuantities();
 	int getSeatsPerRows();

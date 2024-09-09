@@ -99,7 +99,7 @@ void Cinema::subMenuMantenimiento() {
 }
 
 //funcion del submenu de reserva
-void Cinema::subMenuReserva() {
+bool Cinema::subMenuReserva() {
 	int number;
 	int numberOfSchedule;
 	std::cout << "RESERVA:" << std::endl;
@@ -114,15 +114,22 @@ void Cinema::subMenuReserva() {
 	number = getint();
 	std::cout << "Sala en la que se exhibe la pelicula: " << moviesList[number].getRoom().getNumber() << std::endl;
 
+	if (moviesList[number].getRoom().getScheduleCounter() == 0) {
+		std::cout << "La pelicula no cuenta con horarios, Porfavor ingrese a la opcion de \"Mantenimiento\" y cree los horarios" << std::endl;
+		return false;
+	}
+
 	std::cout << "Horarios disponibles:" << std::endl;
 	for (int i = 0; i < moviesList[number].getRoom().getScheduleCounter(); i++) {
-		std::cout << i << moviesList[i].getName() << "Fecha: " << moviesList[number].getRoom().getSchedule(i).getDate()
+		std::cout << "Numero de horario ["<< i + 1<<"] " << moviesList[number].getName() << "Fecha: " << moviesList[number].getRoom().getSchedule(i).getDate()
 			<< "Hora de inicio: " << moviesList[number].getRoom().getSchedule(i).getStartHour()
-			<< "hora final: " << moviesList[number].getRoom().getSchedule(i).getStartHour();
+			<< "hora final: " << moviesList[number].getRoom().getSchedule(i).getEndHour();
 	}
 	std::cout << " A cual horario desea reservar:" << std::endl;
 	numberOfSchedule = getint();
 	moviesList[number].getRoom().getSchedule(numberOfSchedule).showSeats(moviesList[number].getRoom().getRowsQuantities(), moviesList[number].getRoom().getSeatsPerRows());
+
+	return true;
 }
 
 //funcion del submenu de venta
@@ -219,12 +226,17 @@ void Cinema::subAddSchedule() {
 	endHour = getint();
 	schedule.setEndHour(endHour);
 
-	Room room = moviesList[number].getRoom();
-	schedule.createSeatsMap(room.getRowsQuantities(), room.getSeatsPerRows());
-	room.setSchedule(schedule);
-	moviesList[number].setRoom(room);
+	if ((startHour >= 0 && startHour <= 24) && (endHour >= 0 && endHour <= 24)) {
+		Room room = moviesList[number].getRoom();
+		schedule.createSeatsMap(room.getRowsQuantities(), room.getSeatsPerRows());
+		room.setSchedule(schedule);
+		moviesList[number].setRoom(room);
 
-	std::cout << "El horario de ha guardado con exito" << std::endl;
+		std::cout << "El horario de ha guardado con exito" << std::endl;
+	}
+	else {
+		std::cout << "Error en las horas debe de ser entre (0 y 24)" << std::endl;
+	}
 }
 
 //funcion de agregar sala

@@ -13,11 +13,7 @@ int main() {
 	int contMovie = 0;
 	int contSchedule = 0;
 	int contRoom = 0;
-	
-	/*Movie movie;
-	Movie movies[10];
-	Sale sale;
-	Sale sales[10];*/
+
 	Schedule schedule;
 	Schedule schedules[10];
 	Cinema cinema;
@@ -63,11 +59,13 @@ int main() {
 			}
 			break;
 		case 3:
-			cinema.subMenuReserva();
-			subOpcion = cinema.getint();
-			if (subOpcion == 3) {
-			
+			if (cinema.subMenuReserva()) {
+				subOpcion = cinema.getint();
+				if (subOpcion == 3) {
+
+				}
 			}
+			
 			//reserva 
 
 			break;

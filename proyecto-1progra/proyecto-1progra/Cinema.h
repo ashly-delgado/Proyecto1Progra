@@ -12,7 +12,7 @@ public:
 
 
 	void subMenuMantenimiento();
-	void subMenuReserva();
+	bool subMenuReserva();
 	void showMenu();
 	void subMenuVenta();
 	void subShowFilesMenu();

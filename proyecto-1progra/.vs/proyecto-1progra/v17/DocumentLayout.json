@@ -1,12 +1,156 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\GIT\\proyecto-1progra\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Cinema.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\proyecto-1progra.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\proyecto-1progra.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Schedule.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Schedule.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Movie.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Movie.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Movie.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Movie.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Cinema.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cinema.h",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.h",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Cinema.h",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.h",
+              "RelativeToolTip": "proyecto-1progra\\Cinema.h",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-09T02:59:45.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Schedule.cpp",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Schedule.cpp",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Schedule.cpp",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Schedule.cpp",
+              "RelativeToolTip": "proyecto-1progra\\Schedule.cpp",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAEkAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-09T02:15:07.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "proyecto-1progra.cpp",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\proyecto-1progra.cpp",
+              "RelativeDocumentMoniker": "proyecto-1progra\\proyecto-1progra.cpp",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\proyecto-1progra.cpp",
+              "RelativeToolTip": "proyecto-1progra\\proyecto-1progra.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-09T02:19:07.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Room.h",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.h",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Room.h",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.h",
+              "RelativeToolTip": "proyecto-1progra\\Room.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAB8AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-09T02:17:49.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Room.cpp",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.cpp",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Room.cpp",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.cpp",
+              "RelativeToolTip": "proyecto-1progra\\Room.cpp",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAjwCsAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-09T02:15:31.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Movie.cpp",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Movie.cpp",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Movie.cpp",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Movie.cpp",
+              "RelativeToolTip": "proyecto-1progra\\Movie.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-09T02:13:52.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Movie.h",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Movie.h",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Movie.h",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Movie.h",
+              "RelativeToolTip": "proyecto-1progra\\Movie.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-09T02:13:49.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Cinema.cpp",
+              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.cpp",
+              "RelativeDocumentMoniker": "proyecto-1progra\\Cinema.cpp",
+              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.cpp",
+              "RelativeToolTip": "proyecto-1progra\\Cinema.cpp",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAuwDgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-09T01:55:43.614Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
