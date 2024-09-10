@@ -24,6 +24,7 @@ std::string Schedule::getDate() {
 int Schedule::getStartHour() {
 	return startHour;
 }
+
 int Schedule::getEndHour() {
 	return endHour;
 }
@@ -32,9 +33,11 @@ int Schedule::getEndHour() {
 void Schedule::setDate(std::string date) {
 	this->date = date;
 }
+
 void Schedule::setStartHour(int startHour) {
 	this->startHour = startHour;
 }
+
 void Schedule::setEndHour(int endHour) {
 	this->endHour = endHour;
 }
@@ -87,4 +90,11 @@ void Schedule::showSeats(int rows, int columns) {
 		}
 		std::cout << std::endl;
 	}
+	std::cout << "\033[36m";
+	std::cout << "Disponible";
+	std::cout << "\033[35m";
+	std::cout << "Reservado";
+	std::cout << "\033[31m";
+	std::cout << "Vendido";
+	std::cout << "\033[0m";
 }

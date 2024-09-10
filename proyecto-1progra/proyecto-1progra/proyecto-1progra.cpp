@@ -15,10 +15,7 @@ int main() {
 	int contRoom = 0;
 
 	Schedule schedule;
-	Schedule schedules[10];
 	Cinema cinema;
-	Room room;
-	Room rooms[10];
 	
 	//switch de todo el menu
 	while (!getOut) {

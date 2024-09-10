@@ -10,6 +10,7 @@ Booking::Booking() {
 	price = 0;
 	idBooking = 0;
 }
+
 Booking::Booking(double totalPrice, int bookingNumber, int movieId, int scheduleId, int quantitiesOfSeats, int price, int idBooking) {
 	this->totalPrice = totalPrice;
 	this->bookingNumber = bookingNumber;

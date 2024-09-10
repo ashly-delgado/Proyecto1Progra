@@ -7,7 +7,6 @@ Movie::Movie() {
 	time = 0;
 	country = "";
 	review = 0;
-
 }
 
 Movie::Movie(std::string name, int year, int time, std::string country, int review, Room room) {

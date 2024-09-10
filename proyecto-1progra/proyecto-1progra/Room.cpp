@@ -9,11 +9,11 @@ Room::Room() {
 	rowsQuantities = 0;
 	seatsPerRows = 0;
 	scheduleCounter = 0;
-	//schedule = new Schedule[0];
-	schedule = nullptr;
+	schedule = new Schedule[0];
+	//schedule = nullptr;
 }
 
-Room::Room(int number, int numberOfSeats, double price, int rowsQuantities, int seatsPerRows ) {
+Room::Room(int number, int numberOfSeats, double price, int rowsQuantities, int seatsPerRows) {
 	this->number = number;
 	this->numberOfSeats = numberOfSeats;
 	this->price = price;
@@ -73,14 +73,18 @@ void Room::setSchedule(Schedule _schedule) {
 	schedule[scheduleCounter] = _schedule;
 	scheduleCounter = newSize;
 }
+
 void Room::resizeArray(Schedule*& schedule, int& sizeFrom, int newSize) {
 	Schedule* newArr = new Schedule[newSize];
 	for (int i = 0; i < sizeFrom && i < newSize; ++i) {
 		newArr[i] = schedule[i];
 	}
-	delete[] schedule;
+	if (sizeFrom != 0) {
+		delete[] schedule;
+	}
 	schedule = newArr;
 }
+
 void Room::setScheduleCounter(int scheduleCounter) {
 	this->scheduleCounter = scheduleCounter;
 }
