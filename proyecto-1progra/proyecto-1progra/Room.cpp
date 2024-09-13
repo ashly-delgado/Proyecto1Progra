@@ -10,7 +10,6 @@ Room::Room() {
 	seatsPerRows = 0;
 	scheduleCounter = 0;
 	schedule = new Schedule[0];
-	//schedule = nullptr;
 }
 
 Room::Room(int number, int numberOfSeats, double price, int rowsQuantities, int seatsPerRows) {

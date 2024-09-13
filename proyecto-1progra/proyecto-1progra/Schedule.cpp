@@ -57,18 +57,17 @@ void Schedule::createSeatsMap(int rowsQuantities, int seatsPerRows) {
 	}
 }
 
-void Schedule::changeSeatStatus(int row, int column) {
-	if (seatsMap[row][column] == 0) {
-		seatsMap[row][column] = 1;
-	}
-	if (seatsMap[row][column] == 1) {
-		seatsMap[row][column] = 2;
-	}
+void Schedule::changeSeatStatus(int row, int column,int value) {
+	seatsMap[row][column] = value;
+}
+
+int Schedule::getSeatValue(int rows, int columns) {
+	return seatsMap[rows][columns];
 }
 
 void Schedule::showSeats(int rows, int columns) {
 	std::cout << "\033[36m";
-	std::cout << " ---   PANTALLA  ---" << std::endl;
+	std::cout << " ---   BUTACAS  ---" << std::endl;
 	std::cout << "\033[0m";
 	for (int i = 0; i < rows; i++) {
 		for (int e = 0; e < columns; e++) {
@@ -91,10 +90,10 @@ void Schedule::showSeats(int rows, int columns) {
 		std::cout << std::endl;
 	}
 	std::cout << "\033[36m";
-	std::cout << "Disponible";
+	std::cout << "Disponible"<<std::endl;
 	std::cout << "\033[35m";
-	std::cout << "Reservado";
+	std::cout << "Reservado" << std::endl;
 	std::cout << "\033[31m";
-	std::cout << "Vendido";
+	std::cout << "Vendido" << std::endl;
 	std::cout << "\033[0m";
 }

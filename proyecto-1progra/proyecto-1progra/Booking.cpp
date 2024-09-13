@@ -8,17 +8,17 @@ Booking::Booking() {
 	scheduleId = 0;
 	quantitiesOfSeats = 0;
 	price = 0;
-	idBooking = 0;
+	state = 0;
 }
 
-Booking::Booking(double totalPrice, int bookingNumber, int movieId, int scheduleId, int quantitiesOfSeats, int price, int idBooking) {
+Booking::Booking(double totalPrice, int bookingNumber, int movieId, int scheduleId, int quantitiesOfSeats, int price, int state) {
 	this->totalPrice = totalPrice;
 	this->bookingNumber = bookingNumber;
 	this->movieId = movieId;
 	this->scheduleId = scheduleId;
 	this->quantitiesOfSeats = quantitiesOfSeats;
 	this->price = price;
-	this->idBooking = idBooking;
+	this->state = state;
 
 }
 Booking::~Booking() {
@@ -44,8 +44,8 @@ int Booking::getQuantitiesOfSeats() {
 int Booking::getPrice() {
 	return price;
 }
-int Booking::getIdBooking() {
-	return idBooking;
+int Booking::getState() {
+	return state;
 }
 
 //sets metodos
@@ -61,12 +61,36 @@ void Booking::setMovieId(int movieId) {
 void Booking::setScheduleId(int schedueleId) {
 	this->scheduleId = scheduleId;
 }
+void Booking::setState(int state) {
+	this->state = state;
+}
+
+
 void Booking::setQuantitiesOfSeats(int quantitiesOfSeats) {
 	this->quantitiesOfSeats = quantitiesOfSeats;
+	matrixSeatsPerBooking = new int* [quantitiesOfSeats];
+	for (int i = 0; i < quantitiesOfSeats; i++)
+	{
+		matrixSeatsPerBooking[i] = new int[2];
+	}
+	for (int i = 0; i < quantitiesOfSeats; i++)
+	{
+		matrixSeatsPerBooking[i][0] = 0;
+		matrixSeatsPerBooking[i][1] = 0;
+	}
 }
 void Booking::setPrice(int price) {
 	this->price = price;
 }
-void Booking::setIdBooking(int idBooking) {
-	this->idBooking = idBooking;
+
+
+void Booking::addSeatsToList(int row,int rowValue,int columnValue) {
+
+	matrixSeatsPerBooking[row][0] = rowValue;
+	matrixSeatsPerBooking[row][1] = rowValue;
+
+}
+
+int Booking::getSeatValue(int rows, int columns) {
+	return matrixSeatsPerBooking[rows][columns];
 }

@@ -24,12 +24,15 @@ public:
 	void resizeArray(Movie*& array, int& sizeFrom, int newSize);
 	void resizeBookingArray(Booking*& array, int& sizeFrom, int newSize);
 	void resizeSaleArray(Sale*& array, int& sizeFrom, int newSize);
-
 	void subAddRoom();
+	void listSeats();
+	void menuReservar();
+	void listBooking();
+	void fillSale();
 
 	std::string readString();
-	int getint();
-	double getdouble();
+	int getInt();
+	double getDouble();
 	void subAddSchedule();
 	Movie addMovie();
 	

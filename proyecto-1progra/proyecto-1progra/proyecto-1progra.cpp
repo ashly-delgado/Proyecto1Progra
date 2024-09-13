@@ -14,19 +14,20 @@ int main() {
 	int contSchedule = 0;
 	int contRoom = 0;
 
+
 	Schedule schedule;
 	Cinema cinema;
 	
 	//switch de todo el menu
 	while (!getOut) {
 		cinema.showMenu();
-		opcion = cinema.getint();
+		opcion = cinema.getInt();
 
 		switch (opcion) {
 		case 1:
 			//opciones de archivos
 			cinema.subShowFilesMenu();
-			subOpcion = cinema.getint();
+			subOpcion = cinema.getInt();
 			if (subOpcion == 1) {
 				cinema.about();
 			}
@@ -36,7 +37,7 @@ int main() {
 			break;
 		case 2:
 			cinema.subMenuMantenimiento();
-			subOpcion = cinema.getint();
+			subOpcion = cinema.getInt();
 			if (subOpcion == 1) {
 				cinema.addMovieToArray(cinema.addMovie());
 				contMovie++;
@@ -56,24 +57,31 @@ int main() {
 			}
 			break;
 		case 3:
-			if (cinema.subMenuReserva()) {
-				subOpcion = cinema.getint();
-				if (subOpcion == 3) {
+			//reserva
+			cinema.menuReservar();
+			subOpcion = cinema.getInt();
+			if (subOpcion == 1) {
+				if (cinema.subMenuReserva()) {
 
 				}
 			}
-			
-			//reserva 
-
+			if (subOpcion == 2) {
+				cinema.listSeats();
+			}
+			if (subOpcion == 3) {
+				cinema.listBooking();
+			}
+			//venta 
 			break;
 		case 4:
 			cinema.subMenuVenta();
-			subOpcion = cinema.getint();
-			if (subOpcion == 4) {
-				
-			}
-			//venta
+			cinema.fillSale();
+			
 			break;
+		case 5:
+			getOut = true;
+			break;
+
 		default:
 			std::cout << "Opcion no aceptada. " << std::endl;
 			break;

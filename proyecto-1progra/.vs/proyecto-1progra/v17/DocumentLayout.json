@@ -1,88 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\GIT\\proyecto-1progra\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Cinema.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\proyecto-1progra.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\proyecto-1progra.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{8DA55BB0-032E-4B27-8535-FD6F9E98BE53}|proyecto-1progra\\proyecto-1progra.vcxproj|solutionrelative:proyecto-1progra\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Room.h",
-              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.h",
-              "RelativeDocumentMoniker": "proyecto-1progra\\Room.h",
-              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.h",
-              "RelativeToolTip": "proyecto-1progra\\Room.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-09-10T03:47:42.694Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Room.cpp",
-              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.cpp",
-              "RelativeDocumentMoniker": "proyecto-1progra\\Room.cpp",
-              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Room.cpp",
-              "RelativeToolTip": "proyecto-1progra\\Room.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAowC4AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-10T03:42:58.947Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "proyecto-1progra.cpp",
-              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\proyecto-1progra.cpp",
-              "RelativeDocumentMoniker": "proyecto-1progra\\proyecto-1progra.cpp",
-              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\proyecto-1progra.cpp",
-              "RelativeToolTip": "proyecto-1progra\\proyecto-1progra.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAAAowDEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-09T02:19:07.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Cinema.cpp",
-              "DocumentMoniker": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.cpp",
-              "RelativeDocumentMoniker": "proyecto-1progra\\Cinema.cpp",
-              "ToolTip": "C:\\GIT\\proyecto-1progra\\proyecto-1progra\\Cinema.cpp",
-              "RelativeToolTip": "proyecto-1progra\\Cinema.cpp",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAAAJsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-09T01:55:43.614Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

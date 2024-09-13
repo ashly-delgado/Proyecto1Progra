@@ -1,2 +1,3 @@
-﻿  Room.cpp
+﻿  Cinema.cpp
+C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(256,56): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
   proyecto-1progra.vcxproj -> C:\GIT\proyecto-1progra\x64\Debug\proyecto-1progra.exe

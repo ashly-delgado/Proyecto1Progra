@@ -11,7 +11,7 @@ Movie* moviesList = new Movie[NUM_MOVIESLIST];
 Booking* bookinglist = new Booking[0];
 Sale* saleList = new Sale[0];
 int sales = 0;
-int quantityBooking = 0;
+
 int numberBooking = 0;
 
 Cinema::Cinema() {
@@ -46,7 +46,7 @@ void Cinema::resizeArray(Movie*& array, int& sizeFrom, int newSize) {
 	array = newArr;
 }
 
-
+//funcion para redimencionar las reservas
 void Cinema::resizeBookingArray(Booking*& array, int& sizeFrom, int newSize) {
 	Booking* newArr = new Booking[newSize];
 	for (int i = 0; i < sizeFrom && i < newSize; ++i) {
@@ -55,6 +55,10 @@ void Cinema::resizeBookingArray(Booking*& array, int& sizeFrom, int newSize) {
 	delete[] array;
 	array = newArr;
 }
+
+
+
+//funcion para redimencionar las ventas
 void Cinema::resizeSaleArray(Sale*& array, int& sizeFrom, int newSize) {
 	Sale* newArr = new Sale[newSize];
 	for (int i = 0; i < sizeFrom && i < newSize; ++i) {
@@ -135,59 +139,206 @@ void Cinema::subMenuMantenimiento() {
 	std::cout << "-------------------\n";
 	std::cout << "Ingrese una opcion:" << std::endl;
 }
+void Cinema::menuReservar() {
+	std::cout << "RESERVA:" << std::endl;
+	std::cout << "---------------------------------\n";
+	std::cout << "1.Reservar:" << std::endl;
+	std::cout << "---------------------------------\n";
+	std::cout << "2.Disponibilidad de las butacas:" << std::endl;
+	std::cout << "---------------------------------\n";
+	std::cout << "3.Lista de reservaciones:" << std::endl;
+	std::cout << "---------------------------------\n";
+}
+
+void Cinema::listBooking() {
+	for (int i = 0; i < numberBooking; i++) {
+		std::cout << "----------------------------------------" << std::endl;
+		std::cout << "Numero de reserva: " << bookinglist[i].getBookingNumber() << std::endl;
+		std::cout << "Identificacion de pelicula: " << bookinglist[i].getMovieId() << std::endl;
+		std::cout << "Identificacion de horario: " << bookinglist[i].getScheduleId() << std::endl;
+		std::cout << "Cantidad de asientos: " << bookinglist[i].getQuantitiesOfSeats() << std::endl;
+		std::cout << "Precio: " << bookinglist[i].getPrice() << std::endl;
+		if (bookinglist[i].getState() == 0) {
+			std::cout << "Estado de asientos: Pendiente facturar" << std::endl;
+		}
+		else {
+			std::cout << "Estado de asientos: Facturado" << std::endl;
+		}
+		std::cout << "Total de precio: " << bookinglist[i].getTotalPrice() << std::endl;
+		std::cout << "----------------------------------------" << std::endl;
+	}
+}
 
 //funcion del submenu de reserva
 bool Cinema::subMenuReserva() {
 	Booking booking;
 	int number;
+	int maxRow = 0;
+	int maxColumn = 0;
 	int numberOfSchedule;
-	std::cout << "RESERVA:" << std::endl;
-	std::cout << "-------------------\n";
+	int row;
+	int column;
+	int countOfSeats;
+	int counterSchedule = 0;
 
 	std::cout << "PELICULAS:" << std::endl;
 	for (int i = 0; i < NUM_MOVIESLIST; i++) {
 		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
 	}
 	std::cout << std::endl;
-	std::cout << " A cual pelicula desea hacerle una reserva [digite un numero]:" << std::endl;
-	number = getint();
+	std::cout << "  A cual pelicula desea hacerle una reserva [digite un numero]:" << std::endl;
+	number = getInt();
 	booking.setMovieId(number);
-	std::cout << " Sala en la que se exhibe la pelicula: " << "|" << moviesList[number].getRoom().getNumber() << "|" << std::endl;
+	std::cout << " Sala en la que se exhibe la pelicula: " << moviesList[number].getRoom().getNumber() << "|" << std::endl;
 
 	if (moviesList[number].getRoom().getScheduleCounter() == 0) {
 		std::cout << "La pelicula no cuenta con horarios, Porfavor ingrese a la opcion de \"Mantenimiento\" y cree los horarios" << std::endl;
 		return false;
 	}
-
+	std::cout << "=========================================" << std::endl;
 	std::cout << "Horarios disponibles:" << std::endl;
 	for (int i = 0; i < moviesList[number].getRoom().getScheduleCounter(); i++) {
-		std::cout << "Numero de horario [" << i << "] " << "|" << moviesList[number].getName() << "|" << "Fecha: " << "|" << moviesList[number].getRoom().getSchedule(i).getDate() << "|"
-			<< "Hora de inicio: " << "|" << moviesList[number].getRoom().getSchedule(i).getStartHour() << "|"
-			<< "hora final: " << "|" << moviesList[number].getRoom().getSchedule(i).getEndHour() << "|" << std::endl;
+		std::cout << "Numero de horario = " << i << "| " << std::endl << "Pelicula: " << moviesList[number].getName() << "|" << std::endl << "Fecha: " << moviesList[number].getRoom().getSchedule(i).getDate() << "|" << std::endl
+			<< "Hora de inicio: " << moviesList[number].getRoom().getSchedule(i).getStartHour() << "|" << std::endl
+			<< "hora final: " << moviesList[number].getRoom().getSchedule(i).getEndHour() << "|" << std::endl;
+		counterSchedule++;
 	}
-	std::cout << " A cual numero de horario desea reservar:" << std::endl;
-	numberOfSchedule = getint();
+	std::cout << "=========================================" << std::endl;
+
+	std::cout << " A cual numero de horario desea reserva:" << std::endl;
+	numberOfSchedule = getInt();
+
+	while (numberOfSchedule < 0 || numberOfSchedule > counterSchedule) {
+		std::cout << "Horario no valido, a cual numero de horario desea reserva:" << std::endl;
+		numberOfSchedule = getInt();
+	}
 	booking.setMovieId(numberOfSchedule);
 
-	// Mostrar horarios
 	moviesList[number].getRoom().getSchedule(numberOfSchedule).showSeats(moviesList[number].getRoom().getRowsQuantities(), moviesList[number].getRoom().getSeatsPerRows());
 
-	std::cout << "Ingresar la cantidad de asientos para reservar:" << std::endl;
-	numberBooking = getint();
-	booking.setQuantitiesOfSeats(numberBooking);
+	std::cout << "\n Ingresar la cantidad de asientos para reservar:\n" << std::endl;
+	countOfSeats = getInt();
+	booking.setQuantitiesOfSeats(countOfSeats);
 
-	for (int index = 0; index < numberBooking; index++) {
+	maxRow = moviesList[number].getRoom().getRowsQuantities();
+	maxColumn = moviesList[number].getRoom().getSeatsPerRows();
+	std::cout << "La siguiente informacion es para las butacas" << std::endl;
+	for (int index = 0; index < countOfSeats; index++) {
+		std::cout << "Ingresar la fila para los o el asiento: # " << index << std::endl;
+		std::cin >> row;
+		if (row >= 0 && row < maxRow) {
+			std::cout << "Ingresar la columna para los o el asiento:" << std::endl;
+			std::cin >> column;
+			if (column >= 0 && column < maxColumn) {
+				if (moviesList[number].getRoom().getSchedule(numberOfSchedule).getSeatValue(row, column) != 0) {
+					std::cout << "Asiento NO disponible" << std::endl;
+					index--;
+				}
+				else {
+					booking.addSeatsToList(index, row, column);
+					moviesList[number].getRoom().getSchedule(numberOfSchedule).changeSeatStatus(row, column, 1);
+				}
+			}
+			else {
+				std::cout << "Columna NO valida." << std::endl;
+				index--;
+			}
+
+		}
+		else {
+			std::cout << "Fila NO valida. " << std::endl;
+			index--;
+		}
 
 	}
-
+	booking.setMovieId(number);
+	booking.setScheduleId(numberOfSchedule);
+	booking.setPrice(moviesList[number].getRoom().getPrice());
+	booking.setTotalPrice(moviesList[number].getRoom().getPrice() * numberBooking);
+	booking.setBookingNumber(numberBooking);
+	resizeBookingArray(bookinglist, numberBooking,(numberBooking+1));
+	bookinglist[numberBooking] = booking;
+	numberBooking++;
 	return true;
 
 }
+void Cinema::listSeats() {
+	int number;
+	int numberOfSchedule;
+	int count = 0;
+	std::cout << "PELICULAS:" << std::endl;
+	for (int i = 0; i < NUM_MOVIESLIST; i++) {
+		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << " Seleccionar una pelicula [digite un numero]:" << std::endl;
+	number = getInt();
+	std::cout << " Sala en la que se exhibe la pelicula: " << moviesList[number].getRoom().getNumber() << "|" << std::endl;
 
+
+	std::cout << "=========================================" << std::endl;
+	std::cout << "Horarios disponibles:" << std::endl;
+	for (int i = 0; i < moviesList[number].getRoom().getScheduleCounter(); i++) {
+		count++;
+		std::cout << "Numero de horario = " << i << "| " << std::endl << "Pelicula: " << moviesList[number].getName() << "|" << std::endl << "Fecha: " << moviesList[number].getRoom().getSchedule(i).getDate() << "|" << std::endl
+			<< "Hora de inicio: " << moviesList[number].getRoom().getSchedule(i).getStartHour() << "|" << std::endl
+			<< "hora final: " << moviesList[number].getRoom().getSchedule(i).getEndHour() << "|" << std::endl;
+	}
+	std::cout << "=========================================" << std::endl;
+	if (count > 0) {
+		std::cout << " A cual numero de horario desea ver la disponibilidad de asientos:" << std::endl;
+		numberOfSchedule = getInt();
+
+		moviesList[number].getRoom().getSchedule(numberOfSchedule).showSeats(moviesList[number].getRoom().getRowsQuantities(),
+			moviesList[number].getRoom().getSeatsPerRows());
+	}
+	else {
+		std::cout << "No hay horarios disponibles en dicha pelicula, porfavor ir a la opcion de 'MANTENIMIENTO' y crear horarios!!!" << std::endl;
+	}
+}
+void Cinema::fillSale() {
+	int idBooking;
+	listBooking();
+	std::string cardNumber;
+	std::string customer;
+	Sale sale;
+	std::cout << "-----------------------------------------" << std::endl;
+	std::cout << "Cual reserva desea facturar" << std::endl;
+	std::cin >> idBooking;
+	if (idBooking >= 0 || idBooking < numberBooking) {
+		if (bookinglist[idBooking].getState() == 0) {
+
+			sale.setIdBooking(idBooking);
+			sale.setTotal(bookinglist[idBooking].getTotalPrice());
+			std::cout << "Porfavor ingresar el Numero de tarjeta: " << std::endl;
+			std::cin >> cardNumber;
+			sale.setCardNumber(cardNumber);
+			std::cout << "Porfavor ingresar la identificacion del cliente: " << std::endl;
+			std::cin >> customer;
+			sale.setIdCustomer(customer);
+			for (int i = 0; i < bookinglist[idBooking].getQuantitiesOfSeats(); i++)
+			{
+				moviesList[bookinglist[idBooking].getMovieId()].getRoom().getSchedule(bookinglist[idBooking].getScheduleId()).changeSeatStatus(bookinglist[idBooking].getSeatValue(i, 0), bookinglist[idBooking].getSeatValue(i, 1), 2);
+			}
+			sale.setIdSale(sales);
+			resizeSaleArray(saleList, sales, (sales + 1));
+			saleList[sales] = sale;
+			bookinglist[idBooking].setState(1);
+			sales++;
+		}
+		else {
+			std::cout << "Reserva no disponible, ya fue facturada" << std::endl;
+		}
+	}
+	else {
+		std::cout << "Codigo de reserva no valido" << std::endl;
+	}
+}
 //funcion del submenu de venta
 void Cinema::subMenuVenta() {
 	std::cout << "VENTA:" << std::endl;
 	std::cout << "-------------------\n";
+
 }
 
 
@@ -206,11 +357,11 @@ Movie Cinema::addMovie() {
 	movie.setName(nameTheMovie);
 
 	std::cout << "ingresar el anio de la pelicula:" << std::endl;
-	yearTheMovie = getint();
+	yearTheMovie = getInt();
 	movie.setYear(yearTheMovie);
 
 	std::cout << "ingresar el tiempo (minutos) de la pelicula:" << std::endl;
-	timeTheMovie = getint();
+	timeTheMovie = getInt();
 	movie.setTime(timeTheMovie);
 
 	std::cout << "ingresar el pais de la pelicula:" << std::endl;
@@ -254,22 +405,22 @@ void Cinema::subAddSchedule() {
 	int number = 0;
 
 	for (int i = 0; i < NUM_MOVIESLIST; i++) {
-		std::cout <<i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
+		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
 	}
 
 	std::cout << "A cual pelicula desea ingresarle un horario [digite un numero]: " << std::endl;
-	number = getint();
+	number = getInt();
 
 	std::cout << "ingrese la fecha de la pelicula:" << std::endl;
 	date = readString();
 	schedule.setDate(date);
 
 	std::cout << "ingresar la hora de inicio de la pelicula:" << std::endl;
-	startHour = getint();
+	startHour = getInt();
 	schedule.setStartHour(startHour);
 
 	std::cout << "ingresar la hora de finalizacion de la pelicula:" << std::endl;
-	endHour = getint();
+	endHour = getInt();
 	schedule.setEndHour(endHour);
 
 	if ((startHour >= 0 && startHour <= 24) && (endHour >= 0 && endHour <= 24)) {
@@ -278,10 +429,11 @@ void Cinema::subAddSchedule() {
 		room.setSchedule(schedule);
 		moviesList[number].setRoom(room);
 
-		std::cout << "El horario de ha guardado con exito" << std::endl;
+		std::cout << "El horario de ha guardado con exito!!" << std::endl;
+
 	}
 	else {
-		std::cout << "Error en las horas debe de ser entre (0 y 24)" << std::endl;
+		std::cout << "Error en las horas debe de ser entre (0 y 24) intentalo de nuevo." << std::endl;
 	}
 }
 
@@ -299,30 +451,29 @@ void Cinema::subAddRoom() {
 		std::cout << i << "| Pelicula:" << " " << moviesList[i].getName() << "|" << std::endl;
 	}
 	std::cout << "A cual pelicula desea ingresarle una sala:" << std::endl;
-	numberMovie = getint();
+	numberMovie = getInt();
 
-	//poner cuantas salas son 
 	std::cout << "Numero de sala:" << std::endl;
-	number = getint();
+	number = getInt();
 	while (number <= 0 || number > 5) {
 		std::cout << "Error esta sala no esta disponible, ingrese una sala entre (1 y 5) " << std::endl;
-		number = getint();
+		number = getInt();
 	}
 	room.setNumber(number);
 
-	std::cout << "La siguiente informacion solicitada es para poner elaborar las butacas (mapa)" << std::endl;
+	std::cout << "La siguiente informacion solicitada es para poner elaborar las butacas" << std::endl;
 	std::cout << "Digite la cantidad de filas:" << std::endl;
-	rowsQuantities = getint();
+	rowsQuantities = getInt();
 	room.setRowsQuantities(rowsQuantities);
 
 	std::cout << "Digite la cantidad de asientos por columna: " << std::endl;
-	seatsPerRows = getint();
+	seatsPerRows = getInt();
 	room.setSeatsPerRows(seatsPerRows);
 
 	room.setNumberOfSeats(rowsQuantities * seatsPerRows);
 
 	std::cout << "Precio:" << std::endl;
-	price = getdouble();
+	price = getDouble();
 	room.setPrice(price);
 	moviesList[numberMovie].setRoom(room);
 
@@ -338,7 +489,7 @@ std::string Cinema::readString() {
 }
 
 //funcion para pasar a enteros
-int Cinema::getint() {
+int Cinema::getInt() {
 	int number;
 	bool notNumber = true;
 	while (notNumber) {
@@ -358,7 +509,7 @@ int Cinema::getint() {
 }
 
 //funcion para pasar a decimal
-double Cinema::getdouble() {
+double Cinema::getDouble() {
 	double number;
 	bool notNumber = true;
 	while (notNumber) {

@@ -23,9 +23,10 @@ public:
 	int getStartHour();
 	int getEndHour();
 
-
+	int getSeatValue(int, int);
 	void createSeatsMap(int, int);
-	void changeSeatStatus(int, int);
+	void changeSeatStatus(int, int, int);
 	void showSeats(int, int);
+	
 };
 
