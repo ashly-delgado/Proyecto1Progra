@@ -29,6 +29,7 @@ public:
 	void menuReservar();
 	void listBooking();
 	void fillSale();
+	void listSale();
 
 	std::string readString();
 	int getInt();

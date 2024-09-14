@@ -75,8 +75,13 @@ int main() {
 			break;
 		case 4:
 			cinema.subMenuVenta();
-			cinema.fillSale();
-			
+			subOpcion = cinema.getInt();
+			if (subOpcion == 1) {
+				cinema.fillSale();
+			}
+			if (subOpcion == 2) {
+				cinema.listSale();
+			}
 			break;
 		case 5:
 			getOut = true;

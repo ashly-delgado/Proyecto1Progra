@@ -1,3 +1,7 @@
 ﻿  Cinema.cpp
-C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(256,56): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(270,56): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(433,18): warning C4129: “[”: secuencia de escape de caracteres no reconocida
+C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(433,18): warning C4129: “]”: secuencia de escape de caracteres no reconocida
+C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(437,18): warning C4129: “[”: secuencia de escape de caracteres no reconocida
+C:\GIT\proyecto-1progra\proyecto-1progra\Cinema.cpp(437,18): warning C4129: “]”: secuencia de escape de caracteres no reconocida
   proyecto-1progra.vcxproj -> C:\GIT\proyecto-1progra\x64\Debug\proyecto-1progra.exe
