@@ -3,6 +3,7 @@
 #include "Movie.h"
 #include "Room.h"
 #include <string>
+#include <vector>
 
 //un vector estatico de 10 espacios, que son las peliculas
 static int  NUM_MOVIESLIST = 10;
@@ -12,6 +13,8 @@ Booking* bookinglist = new Booking[0];
 Sale* saleList = new Sale[0];
 int sales = 0;
 int numberBooking = 0;
+
+//Imagen del c++
 int matriz[11][15] = {
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,1,1,1,1,0,0,0,0,0,0,0,0,0},
@@ -93,7 +96,7 @@ void Cinema::addMovieToArray(Movie movie) {
 Cinema::~Cinema() {
 }
 
-//funcion de mostrar la lista de peliculas
+//funcion de mostrar la lista de peliculas,salas y horarios
 void Cinema::showMoviesList() {
 	std::cout << "======================================Peliculas disponibles========================================" << std::endl;
 	for (int i = 0; i < NUM_MOVIESLIST; i++) {
@@ -140,7 +143,7 @@ void Cinema::showMenu() {
 }
 
 //funcion del submenu de mantenimiento
-void Cinema::subMenuMantenimiento() {
+void Cinema::maintenanceSubMenu() {
 	std::cout << "MANTENIMIENTO:" << std::endl;
 	std::cout << "-------------------\n";
 	std::cout << "1. Peliculas:" << std::endl;
@@ -153,7 +156,8 @@ void Cinema::subMenuMantenimiento() {
 	std::cout << "-------------------\n";
 	std::cout << "Ingrese una opcion:" << std::endl;
 }
-void Cinema::menuReservar() {
+//funcion del submenu de reserva
+void Cinema::bookingSubMenu() {
 	std::cout << "RESERVA:" << std::endl;
 	std::cout << "---------------------------------\n";
 	std::cout << "1.Reservar:" << std::endl;
@@ -164,6 +168,7 @@ void Cinema::menuReservar() {
 	std::cout << "---------------------------------\n";
 }
 
+//funcion de lista de reserva
 void Cinema::listBooking() {
 	for (int i = 0; i < numberBooking; i++) {
 		std::cout << "----------------------------------------" << std::endl;
@@ -183,8 +188,8 @@ void Cinema::listBooking() {
 	}
 }
 
-//funcion del submenu de reserva
-bool Cinema::subMenuReserva() {
+//funcion de reserva
+bool Cinema::reservation() {
 	Booking booking;
 	int number;
 	int maxRow = 0;
@@ -194,6 +199,8 @@ bool Cinema::subMenuReserva() {
 	int column;
 	int countOfSeats;
 	int counterSchedule = 0;
+	std::cout << "RESERVACION DE PELICULA:" << std::endl;
+	std::cout << "Los tiquetes reservados se pueden vender hasta que falten 30 minutos para la proyeccion de la pelicula  de lo contrario NO pueden venderse." << std::endl;
 
 	std::cout << "PELICULAS:" << std::endl;
 	for (int i = 0; i < NUM_MOVIESLIST; i++) {
@@ -265,6 +272,7 @@ bool Cinema::subMenuReserva() {
 		}
 
 	}
+
 	booking.setMovieId(number);
 	booking.setScheduleId(numberOfSchedule);
 	booking.setPrice(moviesList[number].getRoom().getPrice());
@@ -276,6 +284,8 @@ bool Cinema::subMenuReserva() {
 	return true;
 
 }
+
+//funcion de lista de asientos
 void Cinema::listSeats() {
 	int number;
 	int numberOfSchedule;
@@ -309,6 +319,8 @@ void Cinema::listSeats() {
 		std::cout << "No hay horarios disponibles en dicha pelicula, porfavor ir a la opcion de 'MANTENIMIENTO' y crear horarios!!!" << std::endl;
 	}
 }
+
+// funcion de llenar la venta
 void Cinema::fillSale() {
 	int idBooking;
 	listBooking();
@@ -355,7 +367,7 @@ void Cinema::fillSale() {
 	}
 }
 //funcion del submenu de venta
-void Cinema::subMenuVenta() {
+void Cinema::saleMenu() {
 	std::cout << "-------------------" << std::endl;
 	std::cout << "1.Venta de ticketes" << std::endl;
 	std::cout << "-------------------" << std::endl;
@@ -363,6 +375,8 @@ void Cinema::subMenuVenta() {
 	std::cout << "-------------------" << std::endl;
 
 }
+
+//funcion de lista de venta
 void Cinema::listSale() {
 	for (int i = 0; i < sales; i++) {
 		std::cout << "--------------------------------" << std::endl;
@@ -423,8 +437,14 @@ void Cinema::about() {
 	std::cout << std::endl;
 	std::cout << "numero de identificacion: 604970068" << std::endl;
 	std::cout << std::endl;
+	std::cout << "Universidad Nacional" << std::endl;
+	std::cout << std::endl;
+	std::cout << "Programacion 1" << std::endl;
+	std::cout << std::endl;
 	std::cout << "      ES UN GUSTO ATENDERLOS" << std::endl;
 	std::cout << "==========================================\n";
+
+	//generador de la imagen de c++
 	for (int i = 0; i < 11; i++)
 	{
 		for (int e = 0; e < 15; e++)
@@ -443,8 +463,10 @@ void Cinema::about() {
 	std::cout << "==========================================\n";
 	std::cout << "\033[0m";
 }
+
+
 //funcion de agregar horarios
-void Cinema::subAddSchedule() {
+void Cinema::AddSchedule() {
 	Schedule schedule;
 	int startHour = 0;
 	int endHour = 0;
@@ -458,8 +480,11 @@ void Cinema::subAddSchedule() {
 	std::cout << "A cual pelicula desea ingresarle un horario [digite un numero]: " << std::endl;
 	number = getInt();
 
-	std::cout << "ingrese la fecha de la pelicula:" << std::endl;
+	std::cout << "ingrese la fecha de la pelicula formato dd/MM/yyyy:" << std::endl;
 	date = readString();
+
+
+
 	schedule.setDate(date);
 
 	std::cout << "ingresar la hora de inicio de la pelicula:" << std::endl;
@@ -485,7 +510,7 @@ void Cinema::subAddSchedule() {
 }
 
 //funcion de agregar sala
-void Cinema::subAddRoom() {
+void Cinema::AddRoom() {
 	Room room;
 	int number = 0;
 	int numberMovie = 0;
@@ -535,6 +560,8 @@ std::string Cinema::readString() {
 	return read;
 }
 
+
+
 //funcion para pasar a enteros
 int Cinema::getInt() {
 	int number;
@@ -574,3 +601,4 @@ double Cinema::getDouble() {
 	}
 	return number;
 }
+ 

@@ -42,6 +42,7 @@ void Schedule::setEndHour(int endHour) {
 	this->endHour = endHour;
 }
 
+//funcion de crear el mapa de las butacas
 void Schedule::createSeatsMap(int rowsQuantities, int seatsPerRows) {
 	seatsMap = new int* [rowsQuantities];
 	for (int i = 0; i < rowsQuantities; i++)
@@ -57,6 +58,7 @@ void Schedule::createSeatsMap(int rowsQuantities, int seatsPerRows) {
 	}
 }
 
+//funcion de escoger el estado del asiento
 void Schedule::changeSeatStatus(int row, int column,int value) {
 	seatsMap[row][column] = value;
 }
@@ -65,6 +67,7 @@ int Schedule::getSeatValue(int rows, int columns) {
 	return seatsMap[rows][columns];
 }
 
+//mostrar asientos
 void Schedule::showSeats(int rows, int columns) {
 	std::cout << "\033[36m";
 	std::cout << " ---   BUTACAS  ---" << std::endl;

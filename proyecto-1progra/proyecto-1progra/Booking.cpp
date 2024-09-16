@@ -64,8 +64,10 @@ void Booking::setScheduleId(int schedueleId) {
 void Booking::setState(int state) {
 	this->state = state;
 }
-
-
+void Booking::setPrice(int price) {
+	this->price = price;
+}
+//funcion de logica para las butacas
 void Booking::setQuantitiesOfSeats(int quantitiesOfSeats) {
 	this->quantitiesOfSeats = quantitiesOfSeats;
 	matrixSeatsPerBooking = new int* [quantitiesOfSeats];
@@ -79,11 +81,7 @@ void Booking::setQuantitiesOfSeats(int quantitiesOfSeats) {
 		matrixSeatsPerBooking[i][1] = 0;
 	}
 }
-void Booking::setPrice(int price) {
-	this->price = price;
-}
-
-
+//funcion de agregar asientos a la lista
 void Booking::addSeatsToList(int row,int rowValue,int columnValue) {
 
 	matrixSeatsPerBooking[row][0] = rowValue;
@@ -91,6 +89,7 @@ void Booking::addSeatsToList(int row,int rowValue,int columnValue) {
 
 }
 
+// funcion de conseguir el valor del asiento, de la misma logica que conlleva las butacas
 int Booking::getSeatValue(int rows, int columns) {
 	return matrixSeatsPerBooking[rows][columns];
 }

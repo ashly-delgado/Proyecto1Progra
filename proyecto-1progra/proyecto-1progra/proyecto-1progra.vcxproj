@@ -134,7 +134,6 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Sale.cpp" />
     <ClCompile Include="Schedule.cpp" />
-    <ClCompile Include="Seat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Booking.h" />
@@ -143,7 +142,6 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="Sale.h" />
     <ClInclude Include="Schedule.h" />
-    <ClInclude Include="Seat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

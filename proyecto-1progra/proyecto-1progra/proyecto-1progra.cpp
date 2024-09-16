@@ -5,6 +5,7 @@
 #include "Cinema.h"
 #include "Room.h"
 #include <string>
+#include <chrono>
 
 int main() {
 	int subOpcion = 0;
@@ -17,7 +18,7 @@ int main() {
 
 	Schedule schedule;
 	Cinema cinema;
-	
+
 	//switch de todo el menu
 	while (!getOut) {
 		cinema.showMenu();
@@ -36,7 +37,7 @@ int main() {
 			}
 			break;
 		case 2:
-			cinema.subMenuMantenimiento();
+			cinema.maintenanceSubMenu();
 			subOpcion = cinema.getInt();
 			if (subOpcion == 1) {
 				cinema.addMovieToArray(cinema.addMovie());
@@ -44,12 +45,12 @@ int main() {
 			}
 
 			if (subOpcion == 2) {
-				cinema.subAddRoom();
+				cinema.AddRoom();
 				contRoom++;
 			}
 
 			if (subOpcion == 3) {
-				cinema.subAddSchedule();
+				cinema.AddSchedule();
 				contSchedule++;
 			}
 			if (subOpcion == 4) {
@@ -58,10 +59,10 @@ int main() {
 			break;
 		case 3:
 			//reserva
-			cinema.menuReservar();
+			cinema.bookingSubMenu();
 			subOpcion = cinema.getInt();
 			if (subOpcion == 1) {
-				if (cinema.subMenuReserva()) {
+				if (cinema.reservation()) {
 
 				}
 			}
@@ -71,10 +72,10 @@ int main() {
 			if (subOpcion == 3) {
 				cinema.listBooking();
 			}
-			//venta 
+			//venta
 			break;
 		case 4:
-			cinema.subMenuVenta();
+			cinema.saleMenu();
 			subOpcion = cinema.getInt();
 			if (subOpcion == 1) {
 				cinema.fillSale();
@@ -92,7 +93,6 @@ int main() {
 			break;
 
 		}
-
 	}
 	return 0;
 }

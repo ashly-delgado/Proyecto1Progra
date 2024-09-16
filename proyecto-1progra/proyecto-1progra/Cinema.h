@@ -7,16 +7,16 @@
 #include "Sale.h"
 class Cinema {
 private:
-	
+
 public:
-	Cinema(); 
+	Cinema();
 	~Cinema();
 
 
-	void subMenuMantenimiento();
-	bool subMenuReserva();
+	void maintenanceSubMenu();
+	bool reservation();
 	void showMenu();
-	void subMenuVenta();
+	void saleMenu();
 	void subShowFilesMenu();
 	void about();
 	void showMoviesList();
@@ -24,9 +24,9 @@ public:
 	void resizeArray(Movie*& array, int& sizeFrom, int newSize);
 	void resizeBookingArray(Booking*& array, int& sizeFrom, int newSize);
 	void resizeSaleArray(Sale*& array, int& sizeFrom, int newSize);
-	void subAddRoom();
+	void AddRoom();
 	void listSeats();
-	void menuReservar();
+	void bookingSubMenu();
 	void listBooking();
 	void fillSale();
 	void listSale();
@@ -34,8 +34,8 @@ public:
 	std::string readString();
 	int getInt();
 	double getDouble();
-	void subAddSchedule();
+	void AddSchedule();
 	Movie addMovie();
-	
+
 };
 

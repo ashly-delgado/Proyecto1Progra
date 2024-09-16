@@ -65,6 +65,8 @@ void Room::setRowsQuantities(int rowsQuantities) {
 void Room::setSeatsPerRows(int seatsPerRows) {
 	this->seatsPerRows = seatsPerRows;
 }
+
+
 void Room::setSchedule(Schedule _schedule) {
 	int newSize;
 	newSize = scheduleCounter + 1;
